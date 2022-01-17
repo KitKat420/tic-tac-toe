@@ -1,38 +1,34 @@
-from turtle import pos
+from operator import indexOf
 
 
-positions = [[1, 2, 3],
-             [4, 5, 6],
-             [7, 8, 9]
+positions = [[' ', ' ', ' '],
+             [' ', ' ', ' '],
+             [' ', ' ', ' ']
              ]
 
-# column = input("Choose column: ")
-# column = input("Choose row: ")
+
+def board(row, column):
+
+    positions[row][column] = "X"
+
+    pos = [[f"\t   {positions[0][0]}  |", f" {positions[0][1]} ", f"| {positions[0][2]}"],
+           [f"\t   {positions[1][0]}  |",
+           f" {positions[1][1]} ", f"| {positions[1][2]}"],
+           [f"\t   {positions[2][0]}  |",
+           f" {positions[2][1]} ", f"| {positions[2][2]}"],
+           ]
+
+    print(pos[0][0], pos[0][1], pos[0][2])
+    print(f"\t  ____|_____|____")
+    print(pos[1][0], pos[1][1], pos[1][2])
+    print(f"\t  ____|_____|____")
+    print(pos[2][0], pos[2][1], pos[2][2])
+    print(f"\t      |     |   ")
 
 
-def player_placement(row, column):
-    return positions[row][column]
+is_game_on = True
 
-
-def board(pos):
-    board_pieces = []
-
-    rows = [[f"\t   {'X'} |", f" {'X'} ", f"| {'X'}"],
-            [f"\t   {'X'} |", f" {'X'} ", f"| {'X'}"],
-            [f"\t   {'X'} |", f" {'X'} ", f"| {'X'}"]]
-
-    # for row in rows:
-    print(rows[0][0], rows[0][1], rows[0][2])
-    print(f"\t ____|_____|____")
-    print(rows[1][0], rows[1][1], rows[1][2])
-    print(f"\t ____|_____|____")
-    print(rows[2][0], rows[2][1], rows[2][2])
-    print(f"\t     |     |   ")
-
-
-board()
-
-# is_game_on = True
-
-# while is_game_on:
-#     pass
+while is_game_on:
+    row = int(input("Choose row: "))
+    column = int(input("Choose column: "))
+    board(row, column)
