@@ -12,6 +12,7 @@ positions = [[' ', ' ', ' '],
 def is_game_over():
     """This function checks to see if a player won"""
     global is_game_on
+
     row = 0
     column = 0
 
@@ -27,6 +28,10 @@ def is_game_over():
         elif positions[0][0] == "X" and positions[1][1] == "X" and positions[2][2] == "X":
             is_game_on = False
         elif positions[0][2] == "O" and positions[1][1] == "O" and positions[2][0] == "O":
+            is_game_on = False
+        elif positions[0][0] == "O" and positions[1][1] == "O" and positions[2][2] == "O":
+            is_game_on = False
+        elif positions[0][2] == "X" and positions[1][1] == "X" and positions[2][0] == "X":
             is_game_on = False
         row += 1
         column += 1
