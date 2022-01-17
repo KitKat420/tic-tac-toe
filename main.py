@@ -14,21 +14,19 @@ def is_game_over():
     global is_game_on
     row = 0
     column = 0
-    up_down = 0
-    diagonal_row = 0
-    diagonal_column = 0
+
     while row <= 2:
         if positions[row][0] == "X" and positions[row][1] == "X" and positions[row][2] == "X":
             is_game_on = False
         elif positions[row][0] == "O" and positions[row][1] == "O" and positions[row][2] == "O":
             is_game_on = False
-        elif positions[up_down][column] == "X" and positions[up_down + 1][column] == "X" and positions[up_down + 2][column] == "X":
+        elif positions[0][column] == "X" and positions[1][column] == "X" and positions[2][column] == "X":
             is_game_on = False
-        elif positions[up_down][column] == "O" and positions[up_down + 1][column] == "O" and positions[up_down + 2][column] == "O":
+        elif positions[0][column] == "O" and positions[1][column] == "O" and positions[2][column] == "O":
             is_game_on = False
-        elif positions[diagonal_row][diagonal_column] == "X" and positions[diagonal_row + 1][diagonal_column + 1] == "X" and positions[diagonal_row + 2][diagonal_column + 2] == "X":
+        elif positions[0][0] == "X" and positions[1][1] == "X" and positions[2][2] == "X":
             is_game_on = False
-        elif positions[diagonal_row][diagonal_column] == "O" and positions[diagonal_row + 1][diagonal_column + 1] == "O" and positions[diagonal_row + 2][diagonal_column + 2] == "O":
+        elif positions[0][2] == "O" and positions[1][1] == "O" and positions[2][0] == "O":
             is_game_on = False
         row += 1
         column += 1
