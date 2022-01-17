@@ -33,16 +33,22 @@ def is_game_over():
             is_game_on = False
         elif positions[0][2] == "X" and positions[1][1] == "X" and positions[2][0] == "X":
             is_game_on = False
+
         row += 1
         column += 1
 
 
-def board(row, column, player):
+def board(row, column, player, turn):
     """This function maintains the current state of game board"""
-    positions[row][column] = player
 
-    is_game_over()
+    try:
+        positions[row][column] = player
+    except IndexError:
+        print("Invalid position: Please try again.")
+    else:
+        turn()
 
+    # Position layout
     pos = [[f"\t   {positions[0][0]}  |", f" {positions[0][1]} ", f"| {positions[0][2]}"],
            [f"\t   {positions[1][0]}  |",
            f" {positions[1][1]} ", f"| {positions[1][2]}"],
@@ -78,5 +84,4 @@ while is_game_on:
     is_game_over()
     row = int(input("Choose row: "))
     column = int(input("Choose column: "))
-    board(row, column, player_shape)
-    player_turn()
+    board(row, column, player_shape, player_turn)
